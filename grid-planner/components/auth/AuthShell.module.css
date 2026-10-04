@@ -1,0 +1,104 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--bg);
+}
+
+.brand {
+  flex: 1 1 480px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 48px;
+  background: var(--inverse);
+  color: var(--on-inverse);
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--on-inverse);
+}
+
+.art {
+  width: 100%;
+  max-width: 360px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+}
+
+.headline {
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.main {
+  position: relative;
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 48px;
+}
+
+.theme {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.iconInverse,
+.iconOutline {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconInverse {
+  background: var(--inverse);
+  color: var(--on-inverse);
+}
+
+.iconOutline {
+  background: var(--surface);
+  border: 2px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  .brand {
+    padding: 24px;
+    gap: 16px;
+  }
+  .art {
+    display: none;
+  }
+  .headline {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}

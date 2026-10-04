@@ -1,0 +1,240 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 24px;
+  min-height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.vr {
+  width: 1px;
+  height: 24px;
+  background: var(--line-soft);
+}
+
+.kbd {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stageCol {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: var(--sunk);
+}
+
+.modeHint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.stageRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--line);
+}
+
+.composer {
+  position: absolute;
+  width: 304px;
+  max-width: calc(100vw - 48px);
+  transform: translateY(-48px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  cursor: auto;
+  z-index: 5;
+}
+
+.thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.thumb {
+  position: relative;
+  width: 56px;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.thumb[aria-current='true'] {
+  outline: 2px solid var(--inverse);
+  outline-offset: 1px;
+}
+
+.thumbCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--inverse);
+  color: var(--on-inverse);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.panel {
+  flex: 1 1 400px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+}
+
+.panelHead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.emptyList {
+  padding: 24px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink-2);
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 24px 20px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.threadActive {
+  background: var(--sunk);
+}
+
+.threadHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.avatarRing {
+  display: inline-flex;
+  border-radius: 9999px;
+  outline: 1px dashed var(--line);
+  outline-offset: 2px;
+}
+
+.reply {
+  display: flex;
+  gap: 12px;
+  padding-left: 36px;
+}
+
+.replyForm {
+  display: flex;
+  gap: 8px;
+  padding-left: 36px;
+}
+
+.panelFoot {
+  margin-top: auto;
+  padding: 16px 24px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 960px) {
+  .panel {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 600px) {
+  /* On a phone the composer becomes a bottom sheet instead of a popover. */
+  .composer {
+    position: fixed;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    transform: none;
+    border-width: 1px 0 0;
+  }
+  .stageCol {
+    padding: 16px 8px 24px;
+  }
+  .stageRow {
+    gap: 4px;
+  }
+  .header {
+    padding: 8px 12px;
+  }
+}

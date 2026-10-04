@@ -1,0 +1,42 @@
+.rules {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rules li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink-3);
+}
+
+.rules li.strong {
+  color: var(--ink);
+}
+
+.box {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.met {
+  background: var(--inverse);
+  border-color: var(--inverse);
+  color: var(--on-inverse);
+}
+
+.failed {
+  border: 2px solid var(--line);
+}

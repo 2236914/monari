@@ -1,0 +1,25 @@
+.art {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  container-type: inline-size;
+  font-family: var(--brand-font);
+  font-weight: 800;
+  text-align: left;
+  user-select: none;
+}
+
+.abs {
+  position: absolute;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 4.2cqw;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}

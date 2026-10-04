@@ -1,0 +1,157 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header nav a {
+  text-decoration: none;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.main {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 360px;
+  padding: 48px 24px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  text-align: center;
+}
+
+.dropOver {
+  background: var(--sunk);
+  border: 2px solid var(--line);
+}
+
+.dropIcon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--inverse);
+  color: var(--on-inverse);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.list li:last-child {
+  border-bottom: 0;
+}
+
+.list .itemError {
+  align-items: flex-start;
+  outline: 2px solid var(--line);
+  outline-offset: -2px;
+}
+
+.thumb {
+  width: 36px;
+  height: 48px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--block);
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemError .thumb {
+  background: transparent;
+  border: 1px dashed var(--line);
+}
+
+.aside {
+  flex: 1 1 400px;
+  min-width: 0;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ig {
+  background: var(--ig-bg);
+  color: var(--ig-ink);
+  border: 1px solid var(--line);
+  font-family: var(--ig);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.tile,
+.loading,
+.emptyTile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.loading {
+  background: var(--block);
+  color: var(--on-block);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.emptyTile {
+  background: var(--sunk);
+}
+
+@media (max-width: 960px) {
+  .aside {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

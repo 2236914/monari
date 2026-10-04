@@ -1,0 +1,85 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding: 8px 24px;
+  min-height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1 1 320px;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  text-decoration: none;
+  color: var(--ink-2);
+}
+
+.navLink:hover {
+  background: var(--sunk);
+}
+
+.navLink[aria-current='page'] {
+  background: var(--inverse);
+  color: var(--on-inverse);
+  font-weight: 600;
+}
+
+.count {
+  color: var(--ink-3);
+}
+
+.navLink[aria-current='page'] .count {
+  color: var(--on-inverse);
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.themeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  padding: 0 !important;
+}
+
+.bell {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  background: var(--inverse);
+  color: var(--on-inverse);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  text-align: center;
+}

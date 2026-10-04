@@ -1,0 +1,266 @@
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1392px;
+  margin: 0 auto;
+}
+
+.side {
+  flex: 1 1 200px;
+  padding: 32px 24px 0;
+}
+
+.side ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sideLink,
+.sideOn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 12px;
+  text-decoration: none;
+}
+
+.sideLink {
+  color: var(--ink-2);
+}
+
+.sideLink:hover {
+  background: var(--sunk);
+}
+
+.sideOn {
+  background: var(--inverse);
+  color: var(--on-inverse);
+  font-weight: 600;
+}
+
+.main {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.form {
+  flex: 1 1 480px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.logoBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+}
+
+.logoBox :global(.brand-scope) {
+  display: inline-flex;
+}
+
+.picker {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.picker::-webkit-color-swatch-wrapper { padding: 0; }
+.picker::-webkit-color-swatch { border: 0; border-radius: 0; }
+.picker::-moz-color-swatch { border: 0; border-radius: 0; }
+
+.hex {
+  width: 160px;
+  font-family: var(--mono);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.preset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px 0 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.preset:hover { background: var(--sunk); }
+.preset[aria-pressed='true'] { border-width: 2px; padding: 0 9px 0 5px; }
+
+.preset span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line-soft);
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.mode {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.mode:hover { background: var(--sunk); }
+.mode[aria-pressed='true'] { border-width: 2px; padding: 15px; }
+
+.swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.swatch span {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line-soft);
+}
+
+.checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checks li {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.ok,
+.warn {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.ok {
+  background: var(--inverse);
+  color: var(--on-inverse);
+}
+
+.warn {
+  background: var(--surface);
+  border: 2px solid var(--line);
+}
+
+.neutral {
+  padding: 16px;
+  background: var(--sunk);
+}
+
+.previewCol {
+  flex: 1 1 540px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mini {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* Each preview pins its own theme, whatever the page is in. */
+.miniLight {
+  --surface: #ffffff;
+  --ink: #141414;
+  --ink-3: #666666;
+  --line: #141414;
+  --sunk: #ebebeb;
+  --inverse: #141414;
+  --on-inverse: #ffffff;
+}
+
+.miniDark {
+  --surface: #1f1f1f;
+  --ink: #f5f5f5;
+  --ink-3: #a3a3a3;
+  --line: #f5f5f5;
+  --sunk: #333333;
+  --inverse: #f5f5f5;
+  --on-inverse: #141414;
+  --block: #4d4d4d;
+  --on-block: #f5f5f5;
+}
+
+.miniBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.miniBtn {
+  flex: 1;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+}

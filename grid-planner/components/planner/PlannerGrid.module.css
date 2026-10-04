@@ -1,0 +1,108 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--sunk);
+  cursor: grab;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.tile:focus-visible {
+  outline-offset: -4px;
+  z-index: 1;
+}
+
+.overlay {
+  cursor: grabbing;
+  outline: 2px solid var(--inverse);
+}
+
+.num {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  min-width: 24px;
+  height: 22px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--inverse);
+  color: var(--on-inverse);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.badges {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 6px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.square {
+  width: 22px;
+  padding: 0;
+  justify-content: center;
+}
+
+.status {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  display: flex;
+}
+
+.selected {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--inverse);
+  pointer-events: none;
+}
+
+.selected span {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--on-inverse);
+}
+
+@media (max-width: 520px) {
+  .num,
+  .badges,
+  .status {
+    transform: scale(0.85);
+  }
+  .num { transform-origin: top left; }
+  .badges { transform-origin: top right; }
+  .status { transform-origin: bottom left; }
+}

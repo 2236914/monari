@@ -1,0 +1,124 @@
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.col {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.hero {
+  background: var(--inverse);
+  color: var(--on-inverse);
+  padding: 48px 24px;
+}
+
+.needsBand {
+  background: var(--block);
+  color: var(--on-block);
+  padding: 48px 24px;
+}
+
+.needsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.needCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.needCard:hover {
+  background: var(--sunk);
+}
+
+.brandsSection {
+  padding: 48px 24px 64px;
+}
+
+.brandGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.brandCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.swatches span {
+  display: block;
+  aspect-ratio: 3 / 4;
+}
+
+.planRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-soft);
+  text-decoration: none;
+}
+
+.planRow:hover {
+  background: var(--sunk);
+}
+
+.bar {
+  display: flex;
+  height: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.seg {
+  flex-basis: 0;
+}
+
+.seg + .seg {
+  border-left: 1px solid var(--line);
+}
+
+.approved { background: var(--inverse); }
+.scheduled { background: var(--sunk); }
+.review { background: var(--block); }
+.changes { background: var(--surface); outline: 2px solid var(--line); outline-offset: -2px; }
+.draft { background: var(--surface); outline: 1px dashed var(--line); outline-offset: -3px; }
+
+@media (max-width: 760px) {
+  .hero,
+  .needsBand {
+    padding: 32px 16px;
+  }
+  .brandsSection {
+    padding: 32px 16px 48px;
+  }
+}

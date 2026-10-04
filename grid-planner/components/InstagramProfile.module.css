@@ -1,0 +1,192 @@
+.ig {
+  background: var(--ig-bg);
+  color: var(--ig-ink);
+  font-family: var(--ig);
+}
+
+.strong { font-weight: 600; }
+.muted { color: var(--ig-ink-2); }
+.link { color: var(--ig-link); }
+
+.bio {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.igBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--ig-btn);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Desktop */
+.deskTop {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 28px 20px;
+}
+
+.deskInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.deskName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.username {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.btnRow {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.deskCounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.deskBio {
+  padding: 0 28px 20px;
+}
+
+.deskTabs {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  border-top: 1px solid var(--ig-line);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ig-ink-2);
+}
+
+.deskTabs span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 52px;
+}
+
+.deskTabs .tabOn {
+  margin-top: -1px;
+  border-top: 1px solid var(--ig-ink);
+  color: var(--ig-ink);
+}
+
+/* Mobile */
+.mobTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  padding: 0 16px;
+}
+
+.mobUser {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.mobHead {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 4px 16px 12px;
+}
+
+.mobCounts {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.mobNum {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.mobLabel {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.mobBio {
+  padding: 0 16px;
+}
+
+.mobBtns {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px 16px;
+}
+
+.mobTabs {
+  display: flex;
+  border-top: 1px solid var(--ig-line);
+}
+
+.mobTabs span {
+  flex: 1;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ig-ink-2);
+}
+
+.mobTabs .mobTabOn {
+  color: var(--ig-ink);
+  border-bottom: 1px solid var(--ig-ink);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.overlayIcon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.6));
+}
+
+.overlayIcon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+}
