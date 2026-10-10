@@ -21,8 +21,21 @@ export function PersonAvatar({ name, role, size = 28 }: { name: string; role: Ro
   );
 }
 
-/** The client's Instagram profile picture. */
+/** The client's Instagram profile picture: the uploaded photo, or the initial on the brand's colour. */
 export function BrandAvatar({ brand, size = 32 }: { brand: Brand; size?: number }) {
+  if (brand.avatarUrl) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- local data URL
+      <img
+        src={brand.avatarUrl}
+        alt=""
+        width={size}
+        height={size}
+        className="avatar"
+        style={{ width: size, height: size, objectFit: 'cover', background: 'var(--sunk)' }}
+      />
+    );
+  }
   return (
     <span
       className="avatar"
@@ -42,8 +55,24 @@ export function BrandAvatar({ brand, size = 32 }: { brand: Brand; size?: number 
   );
 }
 
-/** The agency's logo tile on the client link. Uses the brand colour inside `.brand-scope`. */
-export function LogoTile({ name, size = 32 }: { name: string; size?: number }) {
+/**
+ * The agency's logo tile on the client link: the uploaded logo on white, or the initial
+ * on the brand colour (inside `.brand-scope`).
+ */
+export function LogoTile({ name, logoUrl, size = 32 }: { name: string; logoUrl?: string | null; size?: number }) {
+  if (logoUrl) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- local data URL
+      <img
+        src={logoUrl}
+        alt={name}
+        title={name}
+        width={size}
+        height={size}
+        style={{ width: size, height: size, flex: 'none', objectFit: 'contain', background: '#ffffff', border: '1px solid var(--line-soft)' }}
+      />
+    );
+  }
   return (
     <span
       title={name}

@@ -1,4 +1,4 @@
-import type { Brand, Plan, Post, ShareLink, Status, Thread } from './types';
+import type { AppNotification, Brand, Member, NotificationPrefs, Plan, PlanTier, Post, ShareLink, Status, Thread, Workspace } from './types';
 
 const art = (n: number) => ({ kind: 'art' as const, art: n });
 
@@ -6,15 +6,63 @@ function post(id: string, type: Post['type'], arts: number[], status: Status, ve
   return { id, type, slides: arts.map(art), coverIndex: 0, caption, status, version, reelLength };
 }
 
-export const WORKSPACE = { name: 'Morpho', plan: 'Studio', brandLimit: 20 };
+export const WORKSPACE: Workspace = {
+  name: 'Morpho',
+  slug: 'morpho',
+  defaultRatio: '3:4',
+  timezone: 'Asia/Manila',
+  tier: 'agency',
+  renews: '12 Nov 2026',
+  storageUsedGb: 18.4,
+};
 
-export const MEMBERS = [
-  { name: 'Sean', email: 'sean@morpho.studio', role: 'Owner' },
-  { name: 'Maya', email: 'maya@morpho.studio', role: 'Member' },
-  { name: 'Mateo', email: 'mateo@morpho.studio', role: 'Member' },
+export const MEMBERS: Member[] = [
+  { id: 'm1', name: 'Sean', email: 'sean@morpho.studio', role: 'Owner', status: 'active', meta: 'Active now' },
+  { id: 'm2', name: 'Maya', email: 'maya@morpho.studio', role: 'Member', status: 'active', meta: 'Active 40m ago' },
+  { id: 'm3', name: 'Mateo', email: 'mateo@morpho.studio', role: 'Member', status: 'active', meta: 'Active yesterday' },
+  { id: 'm4', name: 'Jo', email: 'jo@morpho.studio', role: 'Member', status: 'invited', meta: 'Invited 3 Oct' },
 ];
 
 export const CURRENT_USER = MEMBERS[0];
+
+/** Pricing from CONTEXT.md §11 (to test). Prices in USD per month. */
+export const PLAN_TIERS: Record<PlanTier, { name: string; price: number; brands: number; seats: number; storageGb: number; features: string[] }> = {
+  solo: { name: 'Solo', price: 19, brands: 1, seats: 1, storageGb: 10, features: ['1 brand', 'Planner', 'Share links', 'Approvals'] },
+  studio: { name: 'Studio', price: 49, brands: 5, seats: 3, storageGb: 50, features: ['5 brands', '3 seats', 'All exports'] },
+  agency: { name: 'Agency', price: 129, brands: 20, seats: 10, storageGb: 200, features: ['20 brands', '10 seats', 'Client links under your own branding'] },
+};
+
+export const INVOICES = [
+  { id: 'INV-0012', date: '12 Oct 2026', amount: 129, status: 'Paid' },
+  { id: 'INV-0011', date: '12 Sep 2026', amount: 129, status: 'Paid' },
+  { id: 'INV-0010', date: '12 Aug 2026', amount: 49, status: 'Paid' },
+  { id: 'INV-0009', date: '12 Jul 2026', amount: 49, status: 'Paid' },
+];
+
+export const PAYMENT_METHOD = { brand: 'Visa', last4: '4242', expiry: '08/28' };
+
+export const TIMEZONES = ['Asia/Manila', 'Asia/Singapore', 'Europe/London', 'Europe/Berlin', 'America/New_York', 'America/Los_Angeles', 'Australia/Sydney'];
+
+export const DEFAULT_PREFS: NotificationPrefs = {
+  events: {
+    changes: { inApp: true, email: true },
+    mention: { inApp: true, email: true },
+    comment: { inApp: true, email: false },
+    reply: { inApp: true, email: false },
+    approved: { inApp: true, email: false },
+    'link-opened': { inApp: false, email: false },
+  },
+  digest: 'daily',
+};
+
+export const NOTIFICATIONS: AppNotification[] = [
+  { id: 'n1', type: 'approved', who: 'Lina', role: 'client', text: 'approved Post 6 in October launch', planId: 'october-launch', postId: 'golden-hour', at: '4m ago', read: false },
+  { id: 'n2', type: 'mention', who: 'Maya', role: 'team', text: 'mentioned you on Post 8', planId: 'october-launch', postId: 'single-origin', threadId: 't2', at: '40m ago', read: false },
+  { id: 'n3', type: 'changes', who: 'Lina', role: 'client', text: 'requested changes on Post 8', planId: 'october-launch', postId: 'single-origin', threadId: 't1', at: '2h ago', read: false },
+  { id: 'n4', type: 'comment', who: 'Lina', role: 'client', text: 'commented on Post 10', planId: 'october-launch', postId: 'fall-menu', threadId: 't6', at: '3h ago', read: true },
+  { id: 'n5', type: 'link-opened', who: 'Kenji', role: 'client', text: 'opened the Winter menu link', planId: 'winter-menu', at: '3h ago', read: true },
+  { id: 'n6', type: 'changes', who: 'Lina', role: 'client', text: 'requested changes on Post 9', planId: 'october-launch', postId: 'behind-the-bar', threadId: 't5', at: '5h ago', read: true },
+];
 
 export const BRANDS: Brand[] = [
   {
@@ -120,8 +168,12 @@ export const THREADS: Thread[] = [
 ];
 
 export const SHARE_LINKS: ShareLink[] = [
-  { id: 'l1', planId: 'october-launch', token: 'k7Qm2xV9pLr4', mode: 'approve', allowComments: true, password: false, expires: '31 Oct', views: 14, created: '1 Oct', revoked: null },
-  { id: 'l2', planId: 'october-launch', token: 'old9Fh2kQz', mode: 'view', allowComments: false, password: false, expires: null, views: 3, created: '26 Sep', revoked: '28 Sep' },
+  { id: 'l1', planId: 'october-launch', token: 'k7Qm2xV9pLr4', mode: 'approve', allowComments: true, password: false, expires: '31 Oct', expiresAt: '2026-10-31', views: 14, created: '1 Oct', revoked: null },
+  { id: 'l2', planId: 'october-launch', token: 'old9Fh2kQz', mode: 'view', allowComments: false, password: false, expires: null, expiresAt: null, views: 3, created: '26 Sep', revoked: '28 Sep' },
+  // Password-protected sample. Try the password "ramen".
+  { id: 'l3', planId: 'winter-menu', token: 'Rm8pT2wQx5Nb', mode: 'approve', allowComments: true, password: true, passwordValue: 'ramen', expires: '15 Nov', expiresAt: '2026-11-15', views: 6, created: '6 Oct', revoked: null },
+  // Expired sample.
+  { id: 'l4', planId: 'november-classes', token: 'Ex3vK9dLq7Ha', mode: 'approve', allowComments: true, password: false, expires: '30 Sep', expiresAt: '2026-09-30', views: 9, created: '20 Sep', revoked: null },
 ];
 
 /** Dashboard-only sample figures. Replace with real queries once there is a backend. */

@@ -47,7 +47,7 @@ export default function BrandsPage() {
       <section className={styles.hero}>
         <div className={styles.inner}>
           <div className="stack gap-2" style={{ maxWidth: 720 }}>
-            <span className="t-meta">Morpho · Studio plan · {state.brands.length} of 20 brands</span>
+            <span className="t-meta">Morpho · Agency plan · {state.brands.length} of 20 brands</span>
             <h1 className="t-display">3 plans are waiting on you</h1>
             <p>Lina asked for changes on {changes} posts, one plan has sat in review for 3 days, and one is ready to send.</p>
           </div>
